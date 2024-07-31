@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites</title>
+    <style>
+    	
+    .nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+/* Styles for favorites section */
+.favorites-section {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.favorites-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.favorites-section li {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Your Favorite Animals</h1>
+        <nav>
+            <a href="/home">Back to home</a>
+        </nav>
+    </header>
+    <main>
+        <section class="favorites-section">
+            <ul id="favoritesList"></ul>
+        </section>
+    </main>
+    <footer>
+       
+    </footer>
+    <script> 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const favoritesList = document.getElementById("favoritesList");
+    const favoritedAnimals = JSON.parse(localStorage.getItem("favoritedAnimals")) || [];
+
+    if (favoritedAnimals.length === 0) {
+        favoritesList.innerHTML = "<p>You have no favorite animals.</p>";
+    } else {
+        favoritedAnimals.forEach(animal => {
+            const listItem = document.createElement("li");
+            listItem.textContent = animal;
+            favoritesList.appendChild(listItem);
+        });
+    }
+});
+    </script>
+</body>
+</html>

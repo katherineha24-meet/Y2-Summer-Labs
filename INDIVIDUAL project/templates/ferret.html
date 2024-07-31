@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Page</title>
+    <style>
+body {
+    font-family: serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0f1624;
+    color: #333;
+}
+
+.header {
+    background-color: #0f1624;
+    color: #0f1624;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.main {
+    padding: 2rem;
+}
+
+.animal-section {
+    background-color: #202d4a;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.animal-section h2 {
+    margin-top: 0;
+}
+
+.animal-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.animal-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+    
+}
+
+.favorite-button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.favorite-button.favorited {
+    background-color: #ff6347;
+}
+
+.footer {
+    background-color: #0f1624;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color:goldenrod;">Welcome to the Animal Page</h1>
+    </header>
+    <a href="/home">Back to home </a>
+    <main>
+        <section class="animal-section">
+            <h2 style="color:goldenrod; font-size: 30px">Weasel Manouver: The Ferret</h2>
+            <img src="https://vets.blog.gov.uk/wp-content/uploads/sites/186/2021/07/Untitled-design-7-003.jpg" alt="raccoon" class="animal-image">
+            <p class="animal-description" style="color: goldenrod;"> The ferret is a small, domesticated mammal belonging to the Mustelidae family, which also includes weasels, otters, and minks. Ferrets have been domesticated for over 2,000 years and are often kept as pets or used for hunting rodents.
+<br> 
+<br>
+Ferrets have long, slender bodies with short legs, allowing them to move swiftly and navigate through narrow spaces. They typically have a pale yellow, brown, black, or white coat with a distinctive mask-like pattern on their faces. Adult ferrets generally weigh between 1.5 to 4 pounds and measure about 18 inches in length, including their tails.
+<br>
+<br>
+As carnivores, ferrets have a diet primarily consisting of meat. In the wild, their ancestors hunted small animals such as rodents and rabbits. Domestic ferrets are typically fed specially formulated ferret food, high in protein and fat, to meet their nutritional needs.
+<br>
+<br>
+Ferrets are known for their playful and curious nature. They enjoy exploring their environment, tunneling through various objects, and engaging in interactive play with toys or other ferrets. This playful behavior, along with their affectionate disposition, makes them popular pets. However, ferrets require a significant amount of mental and physical stimulation, as well as regular veterinary care, to stay healthy and happy. Ferrets are crepuscular, meaning they are most active during dawn and dusk. They tend to sleep for 14-18 hours a day, often in cozy, enclosed spaces. When awake, ferrets exhibit a high level of energy and inquisitiveness, which can be both entertaining and challenging for their owners.
+
+Ferrets have a relatively short lifespan, typically ranging from 6 to 10 years. They are susceptible to certain health issues, such as adrenal gland disease, insulinoma, and gastrointestinal blockages, making regular veterinary check-ups crucial.
+</p>
+ <button id="favoriteButton" class="favorite-button">Favorite</button>
+        </section>
+    </main>
+<script> 
+document.addEventListener("DOMContentLoaded", () => {
+    const favoriteButton = document.getElementById("favoriteButton");
+
+    // Check if the page is already marked as favorite
+    if (localStorage.getItem("isFavorite") === "true") {
+        favoriteButton.classList.add("favorited");
+        favoriteButton.textContent = "Unfavorite";
+    }
+
+    favoriteButton.addEventListener("click", () => {
+        if (favoriteButton.classList.contains("favorited")) {
+            // Unmark as favorite
+            favoriteButton.classList.remove("favorited");
+            favoriteButton.textContent = "Favorite";
+            localStorage.setItem("isFavorite", "false");
+        } else {
+            // Mark as favorite
+            favoriteButton.classList.add("favorited");
+            favoriteButton.textContent = "Unfavorite";
+            localStorage.setItem("isFavorite", "true");
+        }
+</script>
+</body>
+</html>

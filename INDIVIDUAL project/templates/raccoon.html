@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Page</title>
+    <style>
+body {
+    font-family: serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0f1624;
+    color: #333;
+}
+
+.header {
+    background-color: #0f1624;
+    color: #0f1624;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.main {
+    padding: 2rem;
+}
+
+.animal-section {
+    background-color: #202d4a;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.animal-section h2 {
+    margin-top: 0;
+}
+
+.animal-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.animal-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+    
+}
+
+.favorite-button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.favorite-button.favorited {
+    background-color: #ff6347;
+}
+
+.footer {
+    background-color: #0f1624;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color:goldenrod;">Welcome to the Animal Page</h1>
+    </header>
+    <a href="/home">Back to home </a>
+    <main>
+        <section class="animal-section">
+            <h2 style="color:goldenrod; font-size: 30px">Trash Panda: The Raccoon</h2>
+            <img src="https://cloudfront-us-east-1.images.arcpublishing.com/tgam/X4PSBYVT7RC4PICEZUVVNB4IO4.jpg" alt="raccoon" class="animal-image">
+            <p class="animal-description" style="color: goldenrod;">The raccoon is a highly adaptable, nocturnal mammal native to North America. Recognized by its distinctive black "mask" of fur around its eyes and its bushy, ringed tail, the raccoon is a member of the Procyonidae family.
+<br>
+<br>
+Raccoons are omnivores, with a diet that includes fruits, nuts, insects, small mammals, and even garbage when living in urban areas. They are known for their dexterous front paws, which they use to grasp and manipulate food and other objects. This remarkable dexterity, combined with their intelligence, makes raccoons highly effective foragers.
+<br>
+<br>
+Raccoons typically inhabit wooded areas, but they are also common in suburban and urban environments, where they often come into conflict with humans due to their tendency to raid garbage cans and pet food supplies. Despite this, raccoons are generally solitary animals, except during mating season or when a mother is raising her young, called kits. In the wild, raccoons build dens in hollow trees, burrows, or abandoned buildings. They have a unique habit of "washing" their food in water before eating, although this behavior is more pronounced in captivity than in the wild.
+</p>
+ <button id="favoriteButton" class="favorite-button">Favorite</button>
+        </section>
+    </main>
+<script> 
+document.addEventListener("DOMContentLoaded", () => {
+    const favoriteButton = document.getElementById("favoriteButton");
+
+    // Check if the page is already marked as favorite
+    if (localStorage.getItem("isFavorite") === "true") {
+        favoriteButton.classList.add("favorited");
+        favoriteButton.textContent = "Unfavorite";
+    }
+
+    favoriteButton.addEventListener("click", () => {
+        if (favoriteButton.classList.contains("favorited")) {
+            // Unmark as favorite
+            favoriteButton.classList.remove("favorited");
+            favoriteButton.textContent = "Favorite";
+            localStorage.setItem("isFavorite", "false");
+        } else {
+            // Mark as favorite
+            favoriteButton.classList.add("favorited");
+            favoriteButton.textContent = "Unfavorite";
+            localStorage.setItem("isFavorite", "true");
+        }
+</script>
+</body>
+</html>

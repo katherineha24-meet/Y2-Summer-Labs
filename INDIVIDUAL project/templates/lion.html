@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Page</title>
+    <style>
+body {
+    font-family: serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0f1624;
+    color: #333;
+}
+
+.header {
+    background-color: #0f1624;
+    color: #0f1624;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.main {
+    padding: 2rem;
+}
+
+.animal-section {
+    background-color: #202d4a;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.animal-section h2 {
+    margin-top: 0;
+}
+
+.animal-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.animal-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+    
+}
+
+.favorite-button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.favorite-button.favorited {
+    background-color: #ff6347;
+}
+
+.footer {
+    background-color: #0f1624;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color:goldenrod;">Welcome to the Animal Page</h1>
+    </header>
+    <a href="/home">Back to home </a>
+    <main>
+        <section class="animal-section">
+            <h2 style="color:goldenrod; font-size: 30px">King of the Jungle: The Lion</h2>
+            <img src="https://i.pinimg.com/564x/22/99/69/229969b6f137146cb680a2a0ca802cf4.jpg" alt="Lion" class="animal-image">
+            <p class="animal-description" style="color: goldenrod;">The lion is one of the most recognizable and iconic wild animals. Known as the "king of the jungle," lions are the only big cats that live in groups, called prides. These majestic animals are known for their powerful build, majestic mane, and formidable presence.
+<br>
+<br>
+Lions are native to Africa, with a small population of Asiatic lions found in the Gir Forest of India. They inhabit savannas, grasslands, and open woodlands, where they play a crucial role as apex predators in their ecosystems. Male lions are distinguished by their impressive manes, which can vary in color from blonde to black and serve as a symbol of strength and dominance. Females, called lionesses, are primarily responsible for hunting and providing food for the pride.
+<br> 
+<br>
+Lions are carnivorous and hunt a variety of prey, including antelopes, zebras, and wildebeests. They are known for their cooperative hunting strategies, often working together to stalk and ambush their prey. Despite their fierce reputation, lions are also known for their social bonds and affectionate behaviors within their prides, which typically consist of a few adult males, related females, and their offspring.
+</p>
+ <button id="favoriteButton" class="favorite-button">Favorite</button>
+        </section>
+    </main>
+<script> 
+document.addEventListener("DOMContentLoaded", () => {
+    const favoriteButton = document.getElementById("favoriteButton");
+
+    // Check if the page is already marked as favorite
+    if (localStorage.getItem("isFavorite") === "true") {
+        favoriteButton.classList.add("favorited");
+        favoriteButton.textContent = "Unfavorite";
+    }
+
+    favoriteButton.addEventListener("click", () => {
+        if (favoriteButton.classList.contains("favorited")) {
+            // Unmark as favorite
+            favoriteButton.classList.remove("favorited");
+            favoriteButton.textContent = "Favorite";
+            localStorage.setItem("isFavorite", "false");
+        } else {
+            // Mark as favorite
+            favoriteButton.classList.add("favorited");
+            favoriteButton.textContent = "Unfavorite";
+            localStorage.setItem("isFavorite", "true");
+        }
+
+});
+</script>
+</body>
+</html>
